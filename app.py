@@ -8,11 +8,11 @@ from datetime import datetime
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS, cross_origin
 from flask_jwt_extended import JWTManager, create_access_token
-
+import os
 # jwt_required, get_jwt_identity
 
 # creates the Flask instance.
-app = Flask(__name__)
+app = Flask(__name__, static_folder='client-react\\build', static_host='/')
 
 # DATABASE NAME
 app.config['MONGO_DBNAME'] = 'electric_calculator'
@@ -229,7 +229,11 @@ def delete(data_id):
     return jsonify({'status': 'Bill ID: ' + data_id + ' has been Successfully Removed!'})
 
 
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
 #  __name__ will be equal to "__main__".
 #  That means the if conditional statement is satisfied and the app.run() method will be executed.
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
