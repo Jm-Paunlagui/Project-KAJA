@@ -21,7 +21,7 @@ app.config['MONGO_DBNAME'] = 'electric_calculator'
 # to the mongo shell, Compass, and the MongoDB drivers when connecting to a MongoDB deployment
 # PyMongo connects to the MongoDB server running on port 27017 on localhost, to the database named electric_calculator
 # This database is exposed as the "db" attribute.
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/electric_calculator'
+app.config['MONGO_URI'] = 'mongodb+srv://yohan11:LvKPLCVad9odyeR2@cluster0.5ieal.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 # Setup the Flask-JWT-Extended extension
 app.config[
